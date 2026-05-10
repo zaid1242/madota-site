@@ -10,12 +10,13 @@ import Process from "@/components/sections/Process";
 import CTAFooter from "@/components/sections/CTAFooter";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/layout/CustomCursor";
-
+import PageTransition from "@/components/layout/PageTransition";
 export default function Home() {
   return (
     
     <SmoothScroll>
-
+      
+<PageTransition>
     <main className="bg-[#0A0A0A] text-[#F5F5F5] overflow-hidden">
       <CustomCursor />
       <PageLoader />
@@ -29,6 +30,7 @@ export default function Home() {
       <Process />
       <CTAFooter />
     </main>
+    </PageTransition>
     </SmoothScroll>
   );
 }
