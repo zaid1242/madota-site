@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 1. Define your luxury design system variables directly in v4 */
+@theme {
+  --color-matte: #050505;
+  --color-brand-deep: #7A0015;
+  --color-brand-accent: #A0001C;
+  --color-soft: #F5F5F5;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-heavy: rgba(255, 255, 255, 0.08);
+
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  --spacing-editorial-sm: 4rem;
+  --spacing-editorial-md: 8rem;
+  --spacing-editorial-lg: 12rem;
+  --spacing-editorial-xl: 16rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 2. Use standard CSS variables for the base layer */
+@layer base {
+  body {
+    background-color: var(--color-matte);
+    color: var(--color-soft);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+  }
+  
+  ::selection {
+    background-color: var(--color-brand-deep);
+    color: var(--color-soft);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 3. Custom cinematic utilities */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(245, 245, 245, 0.1);
+  }
+  
+  .bg-glow-accent {
+    position: relative;
+  }
+  
+  .bg-glow-accent::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(160,0,28,0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
 }
