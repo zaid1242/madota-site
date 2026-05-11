@@ -108,6 +108,10 @@ export default function Navbar() {
         Contact
       </Link>
 
+      <Link href="/services">
+  Services
+</Link>
+
     </div>
 
   </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import StaggerContainer from "@/components/animations/StaggerContainer";
 import StaggerItem from "@/components/animations/StaggerItem";
 
@@ -72,9 +73,12 @@ export default function AboutPreview() {
             </p>
 
             {/* BUTTON */}
-            <button className="px-8 py-4 bg-[#A0001C] text-white uppercase tracking-[0.2em] text-sm hover:bg-[#7A0015] transition">
-              Discover Philosophy
-            </button>
+            <Link
+  href="/about"
+  className="px-8 py-4 bg-[#A0001C] text-white uppercase tracking-[0.2em] text-sm hover:bg-[#7A0015] transition inline-flex items-center justify-center"
+>
+  Discover Philosophy
+</Link>
 
           </div>
 

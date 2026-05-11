@@ -1,27 +1,36 @@
+
+import Link from "next/link";
 const services = [
   {
     title: "Architecture",
     description:
       "Timeless architectural concepts crafted with cinematic vision, refined proportions, and immersive spatial storytelling.",
     number: "01",
+    href: "/services/architecture",
   },
+
   {
     title: "Interior Design",
     description:
       "Luxury interior environments blending atmosphere, texture, light, and contemporary elegance.",
     number: "02",
+    href: "/services/interior-design",
   },
+
   {
     title: "Luxury Villas",
     description:
       "Ultra-premium villa experiences designed for privacy, sophistication, and elevated modern living.",
     number: "03",
+    href: "/services/luxury-villas",
   },
+
   {
     title: "Smart Homes",
     description:
       "Intelligent living systems integrated seamlessly into modern luxury architecture.",
     number: "04",
+    href: "/services/smart-homes",
   },
 ];
 
@@ -64,36 +73,37 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
           {services.map((service) => (
-            <div
-              key={service.number}
-              className="group relative border border-white/10 bg-white/[0.02] backdrop-blur-sm p-10 md:p-14 hover:border-[#A0001C]/40 transition duration-700 overflow-hidden hover:-translate-y-2"
-            >
+  <Link
+    href={service.href}
+    key={service.number}
+    className="group relative border border-white/10 bg-white/[0.02] backdrop-blur-sm p-10 md:p-14 hover:border-[#A0001C]/40 transition duration-700 overflow-hidden hover:-translate-y-2 block"
+  >
 
-              {/* HOVER GLOW */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#A0001C]/0 via-[#A0001C]/0 to-[#A0001C]/10 opacity-0 group-hover:opacity-100 transition duration-500" />
+    {/* HOVER GLOW */}
+    <div className="absolute inset-0 bg-gradient-to-br from-[#A0001C]/0 via-[#A0001C]/0 to-[#A0001C]/10 opacity-0 group-hover:opacity-100 transition duration-500" />
 
-              {/* NUMBER */}
-              <p className="text-[#A0001C] text-sm tracking-[0.3em] mb-10">
-                {service.number}
-              </p>
+    {/* NUMBER */}
+    <p className="text-[#A0001C] text-sm tracking-[0.3em] mb-10">
+      {service.number}
+    </p>
 
-              {/* TITLE */}
-              <h3 className="text-4xl md:text-5xl font-light mb-6">
-                {service.title}
-              </h3>
+    {/* TITLE */}
+    <h3 className="text-4xl md:text-5xl font-light mb-6">
+      {service.title}
+    </h3>
 
-              {/* DESCRIPTION */}
-              <p className="text-neutral-400 leading-relaxed mb-10 max-w-md">
-                {service.description}
-              </p>
+    {/* DESCRIPTION */}
+    <p className="text-neutral-400 leading-relaxed mb-10 max-w-md">
+      {service.description}
+    </p>
 
-              {/* LINK */}
-              <button className="uppercase tracking-[0.3em] text-sm text-white group-hover:text-[#A0001C] transition">
-                Explore Service
-              </button>
+    {/* LINK TEXT */}
+    <p className="uppercase tracking-[0.3em] text-sm text-white group-hover:text-[#A0001C] transition">
+      Explore Service
+    </p>
 
-            </div>
-          ))}
+  </Link>
+))}
 
         </div>
 

@@ -63,7 +63,7 @@ const handleSubmit = async (
   setLoading(false);
 };
   return (
-    <main className="bg-[#0A0A0A] text-[#F5F5F5] overflow-hidden">
+    <main className="bg-[#0A0A0A] 'text-soft' overflow-hidden">
 
       <Navbar />
 
@@ -71,7 +71,7 @@ const handleSubmit = async (
       <section className="relative py-32 md:py-44 border-b border-white/10 overflow-hidden">
 
         {/* RED GLOW */}
-        <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-[#A0001C]/10 blur-3xl rounded-full -translate-x-1/2" />
+        <div className="absolute top-0 left-1/2 w-'150' h-'150' bg-[#A0001C]/10 blur-3xl rounded-full -translate-x-1/2" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
 

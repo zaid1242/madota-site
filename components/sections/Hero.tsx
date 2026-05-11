@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import MagneticButton from "@/components/ui/MagneticButton";
 import FadeUp from "@/components/animations/FadeUp";
 export default function Hero() {
@@ -53,17 +54,23 @@ export default function Hero() {
               
               <MagneticButton>
 
-  <button
-    className="px-8 py-4 bg-[#A0001C] text-white uppercase tracking-[0.2em] text-sm hover:bg-[#7A0015] transition duration-500"
-  >
-    Explore Projects
-  </button>
+  <Link
+  href="/projects"
+  className="px-8 py-4 bg-[#A0001C] text-white uppercase tracking-[0.2em] text-sm hover:bg-[#7A0015] transition duration-500 inline-flex items-center justify-center"
+>
+  Explore Projects
+</Link>
 
 </MagneticButton>
 
-              <button className="px-8 py-4 border border-white/20 uppercase tracking-[0.2em] text-sm hover:bg-white hover:text-black transition">
-                Book Consultation
-              </button>
+              <a
+  href="https://wa.me/971542289058?text=Hello%20MADOTA,%20I%20would%20like%20to%20book%20a%20private%20consultation."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-8 py-4 border border-white/20 uppercase tracking-[0.2em] text-sm hover:bg-white hover:text-black transition inline-flex items-center justify-center"
+>
+  Book Consultation
+</a>
 
             </div>
 
