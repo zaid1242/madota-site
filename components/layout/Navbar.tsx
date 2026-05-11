@@ -14,7 +14,7 @@ export default function Navbar() {
     
     <header className="fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="flex items-center justify-between py-6 border-b border-white/10">
+        <div className="flex items-center justify-between py-3 border-b border-white/10">
           
           {/* LOGO */}
           <div>
@@ -22,8 +22,8 @@ export default function Navbar() {
               <Image
   src="/branding/logo-white.png"
   alt="MADOTA"
-  width={90}
-  height={28}
+  width={65}
+  height={20}
   priority
   className="object-contain"
 />
