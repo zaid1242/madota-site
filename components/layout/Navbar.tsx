@@ -22,8 +22,8 @@ export default function Navbar() {
               <Image
   src="/branding/logo-white.png"
   alt="MADOTA"
-  width={140}
-  height={40}
+  width={90}
+  height={28}
   priority
   className="object-contain"
 />
