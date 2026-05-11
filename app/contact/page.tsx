@@ -1,7 +1,67 @@
+"use client";
+
+import { toast } from "sonner";
+import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import CTAFooter from "@/components/sections/CTAFooter";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  projectType: "",
+  message: "",
+});
+
+const [loading, setLoading] = useState(false);
+const handleSubmit = async (
+  e: React.FormEvent
+) => {
+  e.preventDefault();
+
+  setLoading(true);
+
+  try {
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+
+      toast.success(
+  "Inquiry sent successfully."
+);
+
+      setFormData({
+        name: "",
+        email: "",
+        projectType: "",
+        message: "",
+      });
+
+    } else {
+
+      toast.error(
+  "Something went wrong."
+);
+    }
+
+  } catch (error) {
+
+    toast.error(
+  "Server error."
+);
+  }
+
+  setLoading(false);
+};
   return (
     <main className="bg-[#0A0A0A] text-[#F5F5F5] overflow-hidden">
 
@@ -60,7 +120,7 @@ export default function ContactPage() {
                     Email
                   </p>
 
-                  <p>hello@madota.com</p>
+                  <p>Info@madotadesign.com</p>
                 </div>
 
                 <div>
@@ -68,7 +128,7 @@ export default function ContactPage() {
                     Phone
                   </p>
 
-                  <p>+971 00 000 0000</p>
+                  <p>+971 54 228 9058</p>
                 </div>
 
                 <div>
@@ -86,7 +146,10 @@ export default function ContactPage() {
             {/* FORM */}
             <div className="lg:col-span-8">
 
-              <form className="space-y-8">
+              <form
+  onSubmit={handleSubmit}
+  className="space-y-8"
+>
 
                 {/* NAME */}
                 <div>
@@ -96,10 +159,17 @@ export default function ContactPage() {
                   </label>
 
                   <input
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full bg-transparent border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition"
-                  />
+  type="text"
+  placeholder="Enter your name"
+  value={formData.name}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      name: e.target.value,
+    })
+  }
+  className="w-full bg-transparent border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition"
+/>
 
                 </div>
 
@@ -111,10 +181,17 @@ export default function ContactPage() {
                   </label>
 
                   <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full bg-transparent border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition"
-                  />
+  type="email"
+  placeholder="Enter your email"
+  value={formData.email}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      email: e.target.value,
+    })
+  }
+  className="w-full bg-transparent border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition"
+/>
 
                 </div>
 
@@ -126,13 +203,22 @@ export default function ContactPage() {
                   </label>
 
                   <select
-                    className="w-full bg-[#0A0A0A] border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition"
-                  >
-                    <option>Luxury Villa</option>
-                    <option>Interior Design</option>
-                    <option>Architecture</option>
-                    <option>Real Estate</option>
-                  </select>
+  value={formData.projectType}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      projectType: e.target.value,
+    })
+  }
+  className="w-full bg-[#0A0A0A] border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition"
+>
+  <option value="">Select Project Type</option>
+
+  <option>Luxury Villa</option>
+  <option>Interior Design</option>
+  <option>Architecture</option>
+  <option>Real Estate</option>
+</select>
 
                 </div>
 
@@ -144,10 +230,17 @@ export default function ContactPage() {
                   </label>
 
                   <textarea
-                    rows={6}
-                    placeholder="Tell us about your vision..."
-                    className="w-full bg-transparent border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition resize-none"
-                  />
+  rows={6}
+  placeholder="Tell us about your vision..."
+  value={formData.message}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      message: e.target.value,
+    })
+  }
+  className="w-full bg-transparent border border-white/10 px-6 py-5 outline-none focus:border-[#A0001C] transition resize-none"
+/>
 
                 </div>
 
@@ -158,11 +251,11 @@ export default function ContactPage() {
                     type="submit"
                     className="px-10 py-5 bg-[#A0001C] text-white uppercase tracking-[0.2em] text-sm hover:bg-[#7A0015] transition"
                   >
-                    Send Inquiry
+                   {loading ? "Sending..." : "Send Inquiry"}
                   </button>
 
                   <a
-                    href="https://wa.me/971000000000"
+                    href="https://wa.me/+971 54 228 9058"
                     target="_blank"
                     className="px-10 py-5 border border-white/10 uppercase tracking-[0.2em] text-sm hover:bg-white hover:text-black transition text-center"
                   >

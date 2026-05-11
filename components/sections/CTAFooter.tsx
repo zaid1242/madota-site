@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function CTAFooter() {
   return (
     <>
@@ -58,9 +59,14 @@ export default function CTAFooter() {
             {/* BRAND */}
             <div className="lg:col-span-5">
 
-              <h2 className="text-4xl md:text-5xl tracking-[0.3em] font-light mb-6">
-                MADOTA
-              </h2>
+              <Image
+  src="/branding/logo-white.png"
+  alt="MADOTA"
+  width={140}
+  height={40}
+  priority
+  className="object-contain mb-6"
+/>
 
               <p className="text-neutral-400 leading-relaxed max-w-md">
                 Cinematic architecture, immersive interiors,
@@ -79,19 +85,19 @@ export default function CTAFooter() {
 
               <div className="flex flex-col gap-4 text-neutral-400">
 
-                <a href="#" className="hover:text-white transition">
+                <a href="/" className="hover:text-white transition">
                   Home
                 </a>
 
-                <a href="#" className="hover:text-white transition">
+                <a href="/about" className="hover:text-white transition">
                   About
                 </a>
 
-                <a href="#" className="hover:text-white transition">
+                <a href="/projects" className="hover:text-white transition">
                   Projects
                 </a>
 
-                <a href="#" className="hover:text-white transition">
+                <a href="/contact" className="hover:text-white transition">
                   Contact
                 </a>
 
@@ -108,9 +114,9 @@ export default function CTAFooter() {
 
               <div className="flex flex-col gap-4 text-neutral-400">
 
-                <p>Dubai, UAE</p>
-                <p>hello@madota.com</p>
-                <p>+971 00 000 0000</p>
+                <p>ARENCO Tower Unit 604, Media City Sheikh Zayed Rd Dubai</p>
+                <p>Info@madotadesign.com</p>
+                <p>+971 54 228 9058</p>
 
               </div>
 
@@ -125,15 +131,11 @@ export default function CTAFooter() {
 
               <div className="flex flex-col gap-4 text-neutral-400">
 
-                <a href="#" className="hover:text-white transition">
+                <a href="https://www.instagram.com/madotadesignandbuild?igsh=MWRoYXhibDc0NmJzNw==" className="hover:text-white transition">
                   Instagram
                 </a>
 
-                <a href="#" className="hover:text-white transition">
-                  Behance
-                </a>
-
-                <a href="#" className="hover:text-white transition">
+                <a href="https://www.linkedin.com/company/madota/" className="hover:text-white transition">
                   LinkedIn
                 </a>
 

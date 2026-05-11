@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Toaster } from "sonner";
 import "@/styles/globals.css";
 
 import { cormorant, inter } from "@/lib/fonts";
@@ -51,6 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+      
         className={`
           ${cormorant.variable}
           ${inter.variable}
@@ -60,6 +62,11 @@ export default function RootLayout({
         `}
       >
         {children}
+        <Toaster
+  position="top-right"
+  richColors
+  theme="dark"
+/>
       </body>
     </html>
   );

@@ -1,8 +1,12 @@
 "use client";
 
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     
@@ -15,27 +19,34 @@ export default function Navbar() {
           {/* LOGO */}
           <div>
             <h1 className="text-2xl tracking-[0.3em] font-light">
-              MADOTA
+              <Image
+  src="/branding/logo-white.png"
+  alt="MADOTA"
+  width={140}
+  height={40}
+  priority
+  className="object-contain"
+/>
             </h1>
           </div>
 
           {/* NAVIGATION */}
           <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.2em] text-neutral-300">
-            <a href="#" className="hover:text-white transition">
+            <Link href="/" className="hover:text-white transition">
               Home
-            </a>
+            </Link>
 
-            <a href="#" className="hover:text-white transition">
+            <Link href="/about" className="hover:text-white transition">
               About
-            </a>
+            </Link>
 
-            <a href="#" className="hover:text-white transition">
+            <Link href="/projects" className="hover:text-white transition">
               Projects
-            </a>
+            </Link>
 
-            <a href="#" className="hover:text-white transition">
+            <Link href="/contact" className="hover:text-white transition">
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* CTA */}
@@ -65,37 +76,37 @@ export default function Navbar() {
     {/* LINKS */}
     <div className="flex flex-col items-center gap-10">
 
-      <a
-        href="#"
+      <Link
+        href="/"
         className="text-4xl font-light"
         onClick={() => setMenuOpen(false)}
       >
         Home
-      </a>
+      </Link>
 
-      <a
-        href="#"
+      <Link
+        href="/about"
         className="text-4xl font-light"
         onClick={() => setMenuOpen(false)}
       >
         About
-      </a>
+      </Link>
 
-      <a
-        href="#"
+      <Link
+        href="/projects"
         className="text-4xl font-light"
         onClick={() => setMenuOpen(false)}
       >
         Projects
-      </a>
+      </Link>
 
-      <a
-        href="#"
+      <Link
+        href="/contact"
         className="text-4xl font-light"
         onClick={() => setMenuOpen(false)}
       >
         Contact
-      </a>
+      </Link>
 
     </div>
 

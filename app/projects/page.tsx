@@ -1,3 +1,5 @@
+
+import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import CTAFooter from "@/components/sections/CTAFooter";
 
@@ -74,11 +76,10 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
             {projects.map((project) => (
-              <div
-                key={project.title}
-                className="group cursor-pointer"
-              >
-
+              <Link
+  href={`/projects/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+  key={project.title}
+>
                 {/* IMAGE */}
                 <div className="relative overflow-hidden mb-8">
 
@@ -122,7 +123,7 @@ export default function ProjectsPage() {
 
                 </div>
 
-              </div>
+              </Link>
             ))}
 
           </div>
