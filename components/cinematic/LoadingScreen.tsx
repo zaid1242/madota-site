@@ -41,7 +41,10 @@ export function LoadingScreen({ onComplete }: { onComplete?: () => void }) {
             y: "-100%", 
             opacity: 0,
             filter: "blur(10px)",
-            transition: { duration: 1.4, ease: luxuryEase } 
+            transition: {
+  duration: 1,
+  ease: "easeInOut"
+}
           }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-between bg-matte px-8 py-16"
         >
@@ -59,7 +62,7 @@ export function LoadingScreen({ onComplete }: { onComplete?: () => void }) {
               <motion.h1
                 initial={{ y: "100%", letterSpacing: "0.1em" }}
                 animate={{ y: "0%", letterSpacing: "0.25em" }}
-                transition={{ duration: 2, ease: luxuryEase }}
+                transition={{ duration: 2, ease: "easeInOut" }}
                 className="font-serif text-5xl tracking-widest text-soft md:text-7xl lg:text-9xl"
               >
                 MADOTA

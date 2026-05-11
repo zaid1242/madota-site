@@ -19,7 +19,7 @@ export function MobileMenu({ isOpen, close }: MobileMenuProps) {
           initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
           animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
           exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          transition={{ duration: 1, ease: luxuryEase }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className="fixed inset-0 z-[90] flex flex-col justify-between bg-matte/95 px-6 pb-12 pt-32"
         >
           {/* Main Navigation Links */}
@@ -30,7 +30,7 @@ export function MobileMenu({ isOpen, close }: MobileMenuProps) {
                   initial={{ y: "100%", opacity: 0, rotateZ: 2 }}
                   animate={{ y: "0%", opacity: 1, rotateZ: 0 }}
                   exit={{ y: "100%", opacity: 0 }}
-                  transition={{ duration: 1.2, delay: 0.1 + i * 0.1, ease: luxuryEase }}
+                  transition={{ duration: 1.2, delay: 0.1 + i * 0.1, ease: "easeInOut" }}
                 >
                   <Link
                     href={link.href}
@@ -49,7 +49,7 @@ export function MobileMenu({ isOpen, close }: MobileMenuProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: luxuryEase }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
             className="flex w-full items-end justify-between border-t border-glass pt-8"
           >
             <div className="flex flex-col gap-2">

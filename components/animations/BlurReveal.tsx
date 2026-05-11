@@ -11,7 +11,7 @@ export function BlurReveal({ children, className, delay = 0 }: { children: React
       viewport={{ once: true, margin: "-100px" }}
       variants={{
         ...blurVariants,
-        visible: { ...blurVariants.visible, transition: { ...blurVariants.visible?.transition, delay } }
+        visible: { ...blurVariants.visible, transition: { delay } }
       }}
       className={className}
       style={{ willChange: "filter, opacity, transform" }}

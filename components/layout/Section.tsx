@@ -13,15 +13,13 @@ export function Section({ children, className, animate = true, ...props }: Secti
   const Comp = animate ? motion.section : "section";
   
   return (
-    <Comp
-      initial={animate ? "hidden" : undefined}
-      whileInView={animate ? "visible" : undefined}
-      viewport={{ once: true, margin: "-100px" }}
-      variants={animate ? fadeUp : undefined}
-      className={cn("py-editorial-sm md:py-editorial-md lg:py-editorial-lg", className)}
-      {...props}
-    >
-      {children}
-    </Comp>
-  );
+  <motion.section
+    initial={animate ? "hidden" : undefined}
+    whileInView={animate ? "visible" : undefined}
+    viewport={{ once: true, margin: "-100px" }}
+    className={className}
+  >
+    {children}
+  </motion.section>
+);
 }

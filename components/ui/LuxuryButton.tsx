@@ -19,10 +19,9 @@ export function LuxuryButton({ children, className, variant = "outline", ...prop
 
   return (
     <motion.button
-      whileHover="hover"
-      className={cn(baseStyles, variants[variant], className)}
-      {...props}
-    >
+  whileHover="hover"
+  className={cn(baseStyles, variants[variant], className)}
+>
       <span className="relative z-10">{children}</span>
       
       {/* Cinematic Underline/Fill Effect */}

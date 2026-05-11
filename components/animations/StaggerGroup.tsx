@@ -34,7 +34,7 @@ export function StaggerContainer({ children, delay = 0, staggerDelay = 0.1, clas
 
 export function StaggerItem({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <motion.div variants={fadeVariants} className={className}>
+    <motion.div className={className}>
       {children}
     </motion.div>
   );
